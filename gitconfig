@@ -3,3 +3,8 @@
 	ci = commit
 	df = diff
 	tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
+	co = checkout
+
+[user]
+	name = Yasunori Horikoshi
+	email = hotoku@users.noreply.github.com
