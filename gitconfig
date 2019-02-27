@@ -13,4 +13,4 @@
 [http]
 	sslVerify = false
 [core]
-	excludesfile = /Users/01004106/.gitignore_global
+	excludesfile = ~/.gitignore_global
