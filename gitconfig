@@ -10,3 +10,7 @@
 [user]
 	name = Yasunori Horikoshi
 	email = hotoku@users.noreply.github.com
+[http]
+	sslVerify = false
+[core]
+	excludesfile = /Users/01004106/.gitignore_global
