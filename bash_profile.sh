@@ -52,4 +52,15 @@ verify"
     COMPREPLY=($(compgen -W "${cand[@]}" -- "${cur}"))    
 }
 
+_make(){
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local prev=${COMP_WORDS[COMP_CWORD-1]}
+    if [ $(echo ${prev} | cut -c1) != "-" ]; then
+        local cand=$(cat Makefile | grep ":" | cut -d":" -f1)
+    fi
+    COMPREPLY=($(compgen -W "${cand[@]}" -- "${cur}"))    
+}
+
+
 complete -F _conda conda
+complete -F _make make
