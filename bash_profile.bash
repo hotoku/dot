@@ -1,4 +1,3 @@
-export PS1="\[\e[0;32m\]\W \$ \[\e[00m\]"
 # export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 export HISTSIZE=50000
 export EDITOR=emacsclient
@@ -69,3 +68,12 @@ complete -F _make make
 alias connect="BluetoothConnector -c 68-fe-f7-7c-a8-de -n; BluetoothConnector -c ac-88-fd-ed-bf-38 -n"
 alias disconnect="BluetoothConnector -d 68-fe-f7-7c-a8-de -n; BluetoothConnector -d ac-88-fd-ed-bf-38 -n"
 
+
+
+
+export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]$(__git_ps1 "[%s]")\[\e[00m\] \$ '
+
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
