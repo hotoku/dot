@@ -62,7 +62,7 @@ _make(){
 
 
 complete -F _conda conda
-complete -F _make make
+# complete -F _make make
 
 
 alias connect="BluetoothConnector -c 68-fe-f7-7c-a8-de -n; BluetoothConnector -c ac-88-fd-ed-bf-38 -n"
