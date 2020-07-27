@@ -2,8 +2,8 @@
 	st = status
 	ci = commit
 	df = diff
-	tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
-  tra = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset' --all
+	tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an: %ad)%Creset %Cred%d%Creset' --date=format:'%Y-%m-%d %H:%M:%S'
+  tra = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an: %ad)%Creset %Cred%d%Creset' --date=format:'%Y/%m/%d %H:%M:%S' --all
   co = checkout
 	br = branch
 
