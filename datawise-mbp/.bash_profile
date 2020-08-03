@@ -48,3 +48,6 @@ export PAT=/usr/local/texlive/2020/bin/x86_64-darwin/platex:$PATH
 
 
 [[ -f ~/.bashrc ]] && source ~/.bashrc
+
+
+source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
