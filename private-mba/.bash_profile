@@ -25,3 +25,8 @@ export PATH=/usr/local/anaconda3/bin:${PATH}
 export PATH=${PATH}:~/bin
 
 source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+
+# google-cloud-sdk
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
