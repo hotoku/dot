@@ -7,6 +7,10 @@ export EDITOR=emacsclient
 which direnv && eval "$(direnv hook bash)"
 
 
+alias gst="git status"
+alias gc="git commit"
+alias tiga="tig --all"
+alias fin="find . -type d -name .git -prune -o -type f -print"
 
 _conda(){
     local commands="activate
