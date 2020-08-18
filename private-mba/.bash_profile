@@ -35,3 +35,8 @@ source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.b
 # git-completion
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+# fzf
+source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
