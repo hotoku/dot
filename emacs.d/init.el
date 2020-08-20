@@ -5,8 +5,9 @@
 (package-initialize)
 
 
-;;; el-get
-(progn 
+
+;;; el-git
+(progn
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
   (unless (require 'el-get nil 'noerror)
@@ -27,11 +28,16 @@
 
 
 
+;;; backup
 (progn
   (setq make-backup-files t)
   (setq backup-directory-alist
 	(cons (cons "\\.*$" (expand-file-name "~/backup"))
 	      backup-directory-alist)))
+
+;;; key
+(progn
+  (global-set-key (kbd "C-x C-j") 'dired-jump))
 
 
 (show-paren-mode)
@@ -48,3 +54,6 @@
   :config
   (global-set-key (kbd "C-c g") 'magit))
 
+
+
+       
