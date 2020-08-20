@@ -6,25 +6,23 @@
 
 
 
+
 ;;; el-git
 (progn
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
   (unless (require 'el-get nil 'noerror)
     (with-current-buffer
 	(url-retrieve-synchronously
 	 "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
       (goto-char (point-max))
       (eval-print-last-sexp)))
-
-  (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-
+  (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm))
-
+		helm equally-spaced))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
+
 
 
 
@@ -35,12 +33,18 @@
 	(cons (cons "\\.*$" (expand-file-name "~/backup"))
 	      backup-directory-alist)))
 
+
+
+
 ;;; key
 (progn
   (global-set-key (kbd "C-x C-j") 'dired-jump))
 
 
+
+
 (show-paren-mode)
+
 
 
 
@@ -50,10 +54,12 @@
 
 
 
+
 (use-package magit
   :config
   (global-set-key (kbd "C-c g") 'magit))
 
 
 
-       
+
+(use-package equally-spaced)
