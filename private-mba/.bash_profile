@@ -22,6 +22,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH=/usr/local/anaconda3/bin:${PATH}
+export PATH=/usr/local/opt/texinfo/bin:${PATH}
 export PATH=${PATH}:~/bin
 
 source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
@@ -30,3 +31,12 @@ source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 # google-cloud-sdk
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
+
+# git-completion
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+# fzf
+source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
