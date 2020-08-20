@@ -29,8 +29,7 @@
 
 ;;; key
 (progn
-  (global-set-key (kbd "C-x C-j") 'dired-jump)
-  (global-set-key (kbd "C-m") 'helm-mini))
+  (global-set-key (kbd "C-x C-j") 'dired-jump))
 
 (show-paren-mode)
 
