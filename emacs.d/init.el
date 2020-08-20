@@ -26,7 +26,7 @@
   (el-get-cleanup my-packages))
 
 
-;;; backup files
+
 (progn
   (setq make-backup-files t)
   (setq backup-directory-alist
@@ -41,3 +41,10 @@
 (use-package dabbrev
   :config
   (setq dabbrev-case-fold-search nil))
+
+
+
+(use-package magit
+  :config
+  (global-set-key (kbd "C-c g") 'magit))
+
