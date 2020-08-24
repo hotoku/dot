@@ -16,7 +16,7 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced open-junk-file))
+		helm equally-spaced open-junk-file projectile))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
 
@@ -38,6 +38,15 @@
   (insert "${" var-name "}"))
 
 (show-paren-mode)
+
+(add-hook 'sh-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
+
+(add-hook 'emacs-lisp-mode-hook
+	  '(lambda ()
+	     (setq before-save-hook `(,@before-save-hook equally-spaced-make-gap-buffer))
+	     (hs-hide-all)))
 
 (use-package dabbrev
   :config
@@ -73,11 +82,11 @@
 	 ("C-c h" . helm-command-prefix)
 	 ("C-c h o" . helm-occur)))
 
-(add-hook 'sh-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
+(use-package projectile
+  :config
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
-;;; before-save-hook: ((lambda () (equally-spaced-make-gap-buffer)))
 ;;; End:
