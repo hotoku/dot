@@ -29,7 +29,8 @@
 
 ;;; key
 (progn
-  (global-set-key (kbd "C-x C-j") 'dired-jump))
+  (global-set-key (kbd "C-x C-j") 'dired-jump)
+  (global-set-key (kbd "C-c m") 'helm-mini))
 
 (show-paren-mode)
 
@@ -65,6 +66,14 @@
   (global-set-key (kbd "C-c h") 'helm-command-prefix)
   (global-unset-key (kbd "C-x c"))
   (global-set-key (kbd "C-c h o") 'helm-occur))
+
+(defun yh/sh-insert-var (var-name)
+  (interactive "svariable name:")
+  (insert "${" var-name "}"))
+
+(use-package sh-script
+  :init
+  (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
