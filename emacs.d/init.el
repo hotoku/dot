@@ -16,7 +16,7 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced))
+		helm equally-spaced open-junk-file))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
 
@@ -31,6 +31,11 @@
 (progn
   (global-set-key (kbd "C-x C-j") 'dired-jump)
   (global-set-key (kbd "C-c m") 'helm-mini))
+
+;;; functions
+(defun yh/sh-insert-var (var-name)
+  (interactive "svariable name:")
+  (insert "${" var-name "}"))
 
 (show-paren-mode)
 
@@ -60,20 +65,17 @@
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to do persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
   (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
-  (global-set-key (kbd "C-c h") 'helm-command-prefix)
   (global-unset-key (kbd "C-x c"))
-  (global-set-key (kbd "C-c h o") 'helm-occur))
 
-(defun yh/sh-insert-var (var-name)
-  (interactive "svariable name:")
-  (insert "${" var-name "}"))
+  :bind (("M-x" . helm-M-x)
+	 ("M-y" . helm-show-kill-ring)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-c h" . helm-command-prefix)
+	 ("C-c h o" . helm-occur)))
 
-(use-package sh-script
-  :init
-  (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var))
+(add-hook 'sh-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
