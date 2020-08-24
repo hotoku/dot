@@ -1,9 +1,3 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 ;;; el-git
 (progn
   (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -16,9 +10,15 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced open-junk-file projectile))
+		helm equally-spaced open-junk-file projectile py-autopep8))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
 
 ;;; backup
 (progn
@@ -86,6 +86,13 @@
   :config
   (projectile-mode +1)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(use-package py-autopep8
+  :config
+  (setq py-autopep8-options
+	'("--max-line-length=300"
+	  "--ignore=E402"))
+  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
