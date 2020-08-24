@@ -45,7 +45,7 @@
 
 (add-hook 'emacs-lisp-mode-hook
 	  '(lambda ()
-	     (setq before-save-hook `(,@before-save-hook equally-spaced-make-gap-buffer))
+	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer)
 	     (hs-hide-all)))
 
 (use-package dabbrev
