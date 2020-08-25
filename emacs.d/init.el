@@ -56,6 +56,8 @@
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (use-package dabbrev
   :config
   (setq dabbrev-case-fold-search nil))
