@@ -37,6 +37,10 @@
   (interactive "svariable name:")
   (insert "${" var-name "}"))
 
+(defun yh/make-insert-var (var-name)
+  (interactive "svariable name:")
+  (insert "$(" var-name ")"))
+
 (show-paren-mode)
 
 (add-hook 'sh-mode-hook
@@ -47,6 +51,10 @@
 	  '(lambda ()
 	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
 	     (hs-hide-all)))
+
+(add-hook 'makefile-gmake-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
 
 (use-package dabbrev
   :config
