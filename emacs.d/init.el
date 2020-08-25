@@ -30,7 +30,8 @@
 ;;; key
 (progn
   (global-set-key (kbd "C-x C-j") 'dired-jump)
-  (global-set-key (kbd "C-c m") 'helm-mini))
+  (global-set-key (kbd "C-c m") 'helm-mini)
+  (global-set-key (kbd "M-u") 'revert-buffer))
 
 ;;; functions
 (defun yh/sh-insert-var (var-name)
