@@ -1,17 +1,4 @@
-# export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
-export HISTSIZE=50000
-export HISTFILESIZE=500000
-export EDITOR=emacsclient
-
-
-which direnv && eval "$(direnv hook bash)"
-
-
-alias gst="git status"
-alias gc="git commit"
-alias tiga="tig --all"
-alias fin="find . -type d -name .git -prune -o -type f -print"
-
+# conda
 _conda(){
     local commands="activate
 deactivate
@@ -49,8 +36,27 @@ verify"
     elif [ ${prev} = activate ]; then
         local cand=$(conda env list | grep -v "#" | awk '{print $1}')
     fi
-    COMPREPLY=($(compgen -W "${cand[@]}" -- "${cur}"))    
+    COMPREPLY=($(compgen -W "${cand[@]}" -- "${cur}"))
 }
+which conda && complete -F _conda conda
 
-complete -F _conda conda
-export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]$(__git_ps1 "[%s]")\[\e[00m\] \$ '
+# history
+export HISTSIZE=50000
+export HISTFILESIZE=500000
+export EDITOR=emacsclient
+
+# alias
+alias gst="git status"
+alias gc="git commit"
+alias tiga="tig --all"
+alias fin="find . -type d -name .git -prune -o -type f -print"
+
+# direnv
+which direnv && eval "$(direnv hook bash)"
+
+# ps1
+if declare -F __git_ps1 > /dev/null; then
+    export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]$(__git_ps1 "[%s]")\[\e[00m\] \$ '
+else
+    export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]\[\e[00m\] \$ '
+fi
