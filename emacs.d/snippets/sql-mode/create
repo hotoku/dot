@@ -5,11 +5,12 @@
 
 #standardSQL
 
-create or replace table `$1` as
+create or replace table \`$1\` as
 with temp1 as (
 select
+  $0
 from
-  ``
+  \`\`
 where
 )
 select
