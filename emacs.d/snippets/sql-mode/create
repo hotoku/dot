@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: create
+# key: create
+# --
+
+#standardSQL
+
+create or replace table `$1` as
+with temp1 as (
+select
+from
+  ``
+where
+)
+select
+from
