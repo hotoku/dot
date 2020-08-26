@@ -1,0 +1,4 @@
+#name : #include "..."
+#key  : inca
+# --
+#include "$1"

@@ -10,7 +10,7 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced open-junk-file projectile py-autopep8))
+		helm equally-spaced open-junk-file projectile py-autopep8 yasnippet))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
 
@@ -104,6 +104,12 @@
 	'("--max-line-length=300"
 	  "--ignore=E402"))
   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1

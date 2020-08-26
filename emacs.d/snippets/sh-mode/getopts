@@ -1,0 +1,9 @@
+# key: getopts
+# name: getopts
+# --
+while getopts $1 OPT; do
+    case $\{OPT\} in
+        $2
+        ?) print_usage; exit ;;
+    esac
+done
