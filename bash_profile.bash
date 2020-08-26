@@ -19,7 +19,7 @@ update
 upgrade
 build
 convert
-debug
+ndebug
 develop
 env
 index

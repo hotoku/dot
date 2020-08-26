@@ -1,0 +1,3 @@
+[submodule "fzf-extras"]
+	path = fzf-extras
+	url = git@github.com.hotoku:atweiden/fzf-extras
