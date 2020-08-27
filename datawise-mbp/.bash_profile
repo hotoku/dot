@@ -1,8 +1,3 @@
-source ~/project/dot/bash_profile.bash
-
-
-
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -20,12 +15,15 @@ unset __conda_setup
 
 
 
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/hotoku/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hotoku/google-cloud-sdk/path.bash.inc'; fi
 
+
+
+
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/hotoku/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hotoku/google-cloud-sdk/completion.bash.inc'; fi
-
 
 
 
@@ -41,10 +39,26 @@ fi
 export PATH
 
 
-PATH=~/bin:${PATH}
 
+
+# PATH
+PATH=~/bin:${PATH}
 export PATH="$HOME/.poetry/bin:$PATH"
 export PAT=/usr/local/texlive/2020/bin/x86_64-darwin/platex:$PATH
+
+
+
+
+# bash completion
+source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+
+
+
+
+# common
+source ~/project/dot/bash_profile.bash
+
+
 
 
 [[ -f ~/.bashrc ]] && source ~/.bashrc
