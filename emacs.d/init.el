@@ -8,12 +8,13 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
-  (setq my-packages
+	(defvar yh/my-packages)
+  (setq yh/my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-					helm equally-spaced open-junk-file projectile py-autopep8 yasnippet
-					helm-projectile flycheck))
-  (el-get 'sync my-packages)
-  (el-get-cleanup my-packages))
+					helm open-junk-file projectile py-autopep8 yasnippet
+					helm-projectile flycheck equally-spaced))
+  (el-get 'sync yh/my-packages)
+  (el-get-cleanup yh/my-packages))
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -52,11 +53,13 @@
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
 
+;;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
 	  '(lambda ()
 	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
-	     (hs-hide-all)))
+			 (hs-hide-all)))
 
+;;; make
 (add-hook 'makefile-gmake-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
