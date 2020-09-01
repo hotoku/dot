@@ -10,7 +10,8 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced open-junk-file projectile py-autopep8 yasnippet))
+					helm equally-spaced open-junk-file projectile py-autopep8 yasnippet
+					helm-projectile))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
 
@@ -111,6 +112,10 @@
   (setq yas-snippet-dirs
       '("~/.emacs.d/snippets"))
   (yas-global-mode 1))
+
+(use-package helm-projectile
+	:config
+	(helm-projectile-on))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
