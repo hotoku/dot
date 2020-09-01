@@ -124,16 +124,18 @@
   (interactive "svariable name:")
   (insert "$(" var-name ")")))
 
-;;; emacs-lisp
-(add-hook 'emacs-lisp-mode-hook
-	  '(lambda ()
-	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
-			 (hs-hide-all)))
-
 ;;; python
 (progn
 	(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 	(setq flycheck-flake8-maximum-line-length 200))
+
+;;; emacs-lisp
+(progn
+	(add-hook 'emacs-lisp-mode-hook
+	  '(lambda ()
+	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)))
+	(add-hook 'emacs-lisp-mode-hook
+						'hs-hide-all 100))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
