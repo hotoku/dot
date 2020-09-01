@@ -1,0 +1,3 @@
+(:name srcery-theme
+       :type github
+       :pkgname "srcery-colors/srcery-emacs")
