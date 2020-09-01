@@ -36,9 +36,10 @@
   (global-set-key (kbd "M-u") 'revert-buffer))
 
 ;;; global setting
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setq-default tab-width 2)
-(show-paren-mode)
+(progn
+	(add-hook 'before-save-hook 'delete-trailing-whitespace)
+	(setq-default tab-width 2)
+	(show-paren-mode))
 
 ;;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
