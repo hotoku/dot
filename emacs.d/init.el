@@ -37,13 +37,16 @@
 (defun yh/sh-insert-var (var-name)
   (interactive "svariable name:")
   (insert "${" var-name "}"))
-
 (defun yh/make-insert-var (var-name)
   (interactive "svariable name:")
   (insert "$(" var-name ")"))
 
+;;; global settings
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq-default tab-width 2)
 (show-paren-mode)
 
+;;; mode settings
 (add-hook 'sh-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
@@ -56,8 +59,6 @@
 (add-hook 'makefile-gmake-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (use-package dabbrev
   :config
