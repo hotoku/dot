@@ -10,7 +10,8 @@
   (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
   (setq my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
-		helm equally-spaced open-junk-file projectile py-autopep8 yasnippet))
+					helm equally-spaced open-junk-file projectile py-autopep8 yasnippet
+					helm-projectile flycheck))
   (el-get 'sync my-packages)
   (el-get-cleanup my-packages))
 
@@ -37,13 +38,16 @@
 (defun yh/sh-insert-var (var-name)
   (interactive "svariable name:")
   (insert "${" var-name "}"))
-
 (defun yh/make-insert-var (var-name)
   (interactive "svariable name:")
   (insert "$(" var-name ")"))
 
+;;; global settings
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq-default tab-width 2)
 (show-paren-mode)
 
+;;; mode settings
 (add-hook 'sh-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
@@ -56,8 +60,6 @@
 (add-hook 'makefile-gmake-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
-
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (use-package dabbrev
   :config
@@ -74,7 +76,7 @@
   (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode))
 
 (use-package helm-config
-  :init
+  :config
   (require 'helm-config)
   (helm-mode 1)
   (setq helm-idle-delay 0.1)
@@ -88,10 +90,10 @@
   (global-unset-key (kbd "C-x c"))
 
   :bind (("M-x" . helm-M-x)
-	 ("M-y" . helm-show-kill-ring)
-	 ("C-x C-f" . helm-find-files)
-	 ("C-c h" . helm-command-prefix)
-	 ("C-c h o" . helm-occur)))
+				 ("M-y" . helm-show-kill-ring)
+				 ("C-x C-f" . helm-find-files)
+				 ("C-c h" . helm-command-prefix)
+				 ("C-c h o" . helm-occur)))
 
 (use-package projectile
   :config
@@ -111,6 +113,21 @@
       '("~/.emacs.d/snippets"))
   (yas-global-mode 1))
 
+(use-package helm-projectile
+	:config
+	(helm-projectile-on))
+
+(use-package flycheck
+	:config
+	(setq flycheck-check-syntax-automatically
+				'(save idle-change mode-enabled))
+	(setq flycheck-idle-change-delay 1)
+	(add-hook 'after-init-hook #'global-flycheck-mode)
+	(eval-after-load 'flycheck
+		'(flycheck-add-mode 'html-tidy 'web-mode))
+	(setq flycheck-flake8-maximum-line-length 200))
+
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
+;;; flycheck-disabled-checkers: (emacs-lisp-checkdoc)
 ;;; End:
