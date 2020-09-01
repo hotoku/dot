@@ -35,34 +35,16 @@
   (global-set-key (kbd "C-c m") 'helm-mini)
   (global-set-key (kbd "M-u") 'revert-buffer))
 
-;;; functions
-(defun yh/sh-insert-var (var-name)
-  (interactive "svariable name:")
-  (insert "${" var-name "}"))
-(defun yh/make-insert-var (var-name)
-  (interactive "svariable name:")
-  (insert "$(" var-name ")"))
-
-;;; global settings
+;;; global setting
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq-default tab-width 2)
 (show-paren-mode)
-
-;;; mode settings
-(add-hook 'sh-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
 
 ;;; emacs-lisp
 (add-hook 'emacs-lisp-mode-hook
 	  '(lambda ()
 	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
 			 (hs-hide-all)))
-
-;;; make
-(add-hook 'makefile-gmake-mode-hook
-	  '(lambda ()
-	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
 
 (use-package dabbrev
   :config
@@ -129,6 +111,22 @@
 	(eval-after-load 'flycheck
 		'(flycheck-add-mode 'html-tidy 'web-mode))
 	(setq flycheck-flake8-maximum-line-length 200))
+
+;;; shell script
+(add-hook 'sh-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
+(defun yh/sh-insert-var (var-name)
+  (interactive "svariable name:")
+  (insert "${" var-name "}"))
+
+;;; Makefile
+(add-hook 'makefile-gmake-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
+(defun yh/make-insert-var (var-name)
+  (interactive "svariable name:")
+  (insert "$(" var-name ")"))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
