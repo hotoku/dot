@@ -24,6 +24,8 @@ unset __conda_setup
 export PATH=/usr/local/anaconda3/bin:${PATH}
 export PATH=/usr/local/opt/texinfo/bin:${PATH}
 export PATH=${PATH}:~/bin
+export PAHT=/usr/local/texlive/2020/bin/x86_64-darwin:${PATH}
+
 
 source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
