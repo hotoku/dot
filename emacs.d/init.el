@@ -41,12 +41,6 @@
 	(setq-default tab-width 2)
 	(show-paren-mode))
 
-;;; emacs-lisp
-(add-hook 'emacs-lisp-mode-hook
-	  '(lambda ()
-	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
-			 (hs-hide-all)))
-
 (use-package dabbrev
   :config
   (setq dabbrev-case-fold-search nil))
@@ -90,8 +84,7 @@
   :config
   (setq py-autopep8-options
 	'("--max-line-length=300"
-	  "--ignore=E402"))
-  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save))
+	  "--ignore=E402")))
 
 (use-package yasnippet
   :config
@@ -111,23 +104,36 @@
 	(add-hook 'after-init-hook #'global-flycheck-mode)
 	(eval-after-load 'flycheck
 		'(flycheck-add-mode 'html-tidy 'web-mode))
-	(setq flycheck-flake8-maximum-line-length 200))
+	)
 
 ;;; shell script
-(add-hook 'sh-mode-hook
+(progn
+	(add-hook 'sh-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/sh-insert-var)))
-(defun yh/sh-insert-var (var-name)
+	(defun yh/sh-insert-var (var-name)
   (interactive "svariable name:")
-  (insert "${" var-name "}"))
+  (insert "${" var-name "}")))
 
 ;;; Makefile
-(add-hook 'makefile-gmake-mode-hook
+(progn
+	(add-hook 'makefile-gmake-mode-hook
 	  '(lambda ()
 	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
-(defun yh/make-insert-var (var-name)
+	(defun yh/make-insert-var (var-name)
   (interactive "svariable name:")
-  (insert "$(" var-name ")"))
+  (insert "$(" var-name ")")))
+
+;;; emacs-lisp
+(add-hook 'emacs-lisp-mode-hook
+	  '(lambda ()
+	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)
+			 (hs-hide-all)))
+
+;;; python
+(progn
+	(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+	(setq flycheck-flake8-maximum-line-length 200))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
