@@ -13,6 +13,8 @@
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
 					helm open-junk-file projectile py-autopep8 yasnippet
 					helm-projectile flycheck equally-spaced))
+	(when (executable-find "hg")
+		(add-to-list yh/my-packages 'yatex))
   (el-get 'sync yh/my-packages)
   (el-get-cleanup yh/my-packages))
 
@@ -136,6 +138,32 @@
 	     (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)))
 	(add-hook 'emacs-lisp-mode-hook
 						'hs-hide-all 100))
+
+;;; yatex
+(progn
+	(setq auto-mode-alist
+				(cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+	(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+	(add-hook 'yatex-mode-hook '(lambda () (auto-fill-mode -1)))
+
+	(defvar tex-command "tex2pdf"
+		"*Default command for typesetting LaTeX text.")
+
+	;; スクリプト挿入
+	(defun yatex-insert-script (prefix script)
+		(insert (concat prefix "{" script "}")))
+	(defun yatex-insert-subscript (script)
+		(interactive "sscript: ")
+		(yatex-insert-script "_" script))
+	(defun yatex-insert-superscript (script)
+		(interactive "sscript: ")
+		(yatex-insert-script "^" script))
+	(add-hook 'yatex-mode-hook
+						'(lambda ()
+							 (local-set-key "\C-c\C-f" 'yatex-insert-subscript)
+							 (local-set-key "\C-c\C-g" 'yatex-insert-superscript)
+							 (local-set-key "\C-\M-a" 'foiltex-previous-page)
+							 (local-set-key "\C-\M-e" 'foiltex-next-page))))
 
 ;;; Local Variables:
 ;;; equally-spaced-width: 1
