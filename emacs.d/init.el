@@ -12,17 +12,17 @@
   (setq yh/my-packages
 	'(magit use-package browse-kill-ring session color-moccur auto-complete session
 					helm open-junk-file projectile py-autopep8 yasnippet
-					helm-projectile flycheck equally-spaced))
+					helm-projectile flycheck equally-spaced git-ps1-mode))
 	(when (executable-find "hg")
 		(add-to-list yh/my-packages 'yatex))
   (el-get 'sync yh/my-packages)
   (el-get-cleanup yh/my-packages))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
+;;; site-config
+(progn
+  (let ((f (concat user-emacs-directory "site-config.el")))
+    (when (file-exists-p f)
+      (load f))))
 
 ;;; backup
 (progn
@@ -107,6 +107,13 @@
 	(eval-after-load 'flycheck
 		'(flycheck-add-mode 'html-tidy 'web-mode))
 	)
+
+(use-package git-ps1-mode
+	:if
+	(boundp 'git-ps1-mode-ps1-file)
+	:config
+	(add-hook 'dired-mode-hook
+          'git-ps1-mode))
 
 ;;; shell script
 (progn
