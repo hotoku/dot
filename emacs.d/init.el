@@ -128,7 +128,8 @@
 (progn
 	(add-hook 'makefile-gmake-mode-hook
 	  '(lambda ()
-	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)))
+	     (local-set-key (kbd "C-c C-j") 'yh/make-insert-var)
+			 (add-hook 'before-save-hook 'equally-spaced-make-gap-buffer :local t)))
 	(defun yh/make-insert-var (var-name)
   (interactive "svariable name:")
   (insert "$(" var-name ")")))
