@@ -1,0 +1,5 @@
+[MASTER]
+disable=invalid-name,
+  missing-function-docstring,
+  missing-module-docstring,
+  line-too-long
