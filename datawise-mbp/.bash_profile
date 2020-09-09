@@ -61,4 +61,10 @@ source ~/project/dot/bash_profile.bash
 
 
 
+# zd
+source ~/project/dot/fzf-extras/fzf-extras.sh
+
+
+
+
 [[ -f ~/.bashrc ]] && source ~/.bashrc
