@@ -1,0 +1,5 @@
+(:name git-ps1-mode
+       :description "minor mode indicating git branch in dired"
+       :website "https://github.com/10sr/git-ps1-mode-el"
+       :type github
+       :pkgname "10sr/git-ps1-mode-el")
