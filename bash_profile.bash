@@ -60,3 +60,10 @@ if declare -F __git_ps1 > /dev/null; then
 else
     export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]\[\e[00m\] \$ '
 fi
+
+# fzf
+if [[ -d ~/projects/dot/fzf-extras/.git ]]; then
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+    source ~/projects/dot/bash_profile.bash
+    source ~/projects/dot/fzf-extras/fzf-extras.sh
+fi
