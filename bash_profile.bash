@@ -38,7 +38,7 @@ verify"
     fi
     COMPREPLY=($(compgen -W "${cand[@]}" -- "${cur}"))
 }
-which conda > /dev/null && complete -F _conda conda
+which conda > /dev/null 2>&1 && complete -F _conda conda
 
 # history
 export HISTSIZE=50000
@@ -52,7 +52,7 @@ alias tiga="tig --all"
 alias fin="find . -type d -name .git -prune -o -type f -print"
 
 # direnv
-which direnv > /dev/null && eval "$(direnv hook bash)"
+which direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
 
 # ps1
 if declare -F __git_ps1 > /dev/null; then
