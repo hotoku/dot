@@ -40,10 +40,12 @@ verify"
 }
 which conda > /dev/null 2>&1 && complete -F _conda conda
 
+
 # history
 export HISTSIZE=50000
 export HISTFILESIZE=500000
 export EDITOR=emacsclient
+
 
 # alias
 alias gst="git status"
@@ -51,8 +53,10 @@ alias gc="git commit"
 alias tiga="tig --all"
 alias fin="find . -type d -name .git -prune -o -type f -print"
 
+
 # direnv
 which direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
+
 
 # ps1
 if declare -F __git_ps1 > /dev/null; then
@@ -61,8 +65,21 @@ else
     export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]\[\e[00m\] \$ '
 fi
 
+
 # fzf
 if [[ -d ~/projects/dot/fzf-extras/.git ]]; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
     source ~/projects/dot/fzf-extras/fzf-extras.sh
 fi
+
+
+# gh
+if which gh > /dev/null; then
+    eval "$(gh completion -s bash)"
+fi
+
+
+## rbenv
+[[ -d ~/.rbenv  ]] && \
+    export PATH=${HOME}/.rbenv/bin:${PATH} && \
+    eval "$(rbenv init -)"
