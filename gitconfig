@@ -22,6 +22,3 @@ cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \
 trustExitCode = true
 [pull]
 rebase = false
-
-[branch "master"]
-mergeoptions = --no-ff
