@@ -45,6 +45,7 @@ which conda > /dev/null 2>&1 && complete -F _conda conda
 export HISTSIZE=50000
 export HISTFILESIZE=500000
 export EDITOR=emacsclient
+export HISTTIMEFORMAT="%d/%m/%y %T "
 
 
 # alias
