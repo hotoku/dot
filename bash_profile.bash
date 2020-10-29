@@ -68,7 +68,7 @@ fi
 
 
 # fzf
-if [[ -d ~/projects/dot/fzf-extras/.git ]]; then
+if [[ -d ~/projects/dot/fzf-extras/.git ]] || [[ -f ~/projects/dot/fzf-extras/.git ]]; then
     source /usr/share/doc/fzf/examples/key-bindings.bash
     source ~/projects/dot/fzf-extras/fzf-extras.sh
 fi
