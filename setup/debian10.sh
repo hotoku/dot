@@ -1,4 +1,4 @@
-sudo apt install -y tmux git emacs
+sudo apt install -y tmux git emacs fzf
 
 cd ~
 PROJECTS=projects
