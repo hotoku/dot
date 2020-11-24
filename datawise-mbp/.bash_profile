@@ -16,14 +16,8 @@ unset __conda_setup
 
 
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/hotoku/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hotoku/google-cloud-sdk/path.bash.inc'; fi
 
 
-
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/hotoku/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hotoku/google-cloud-sdk/completion.bash.inc'; fi
 
 
 
@@ -68,3 +62,9 @@ source ~/project/dot/fzf-extras/fzf-extras.sh
 
 
 [[ -f ~/.bashrc ]] && source ~/.bashrc
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/hotoku/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/hotoku/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/hotoku/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/hotoku/Downloads/google-cloud-sdk/completion.bash.inc'; fi
