@@ -54,6 +54,7 @@ alias gc="git commit"
 alias tiga="tig --all"
 alias fin="find . -type d -name .git -prune -o -type f -print"
 alias cd=pushd
+alias dirs="dirs -v"
 
 
 # direnv
