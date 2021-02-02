@@ -26,13 +26,7 @@ export PATH=/usr/local/opt/texinfo/bin:${PATH}
 export PATH=${PATH}:~/bin
 export PAHT=/usr/local/texlive/2020/bin/x86_64-darwin:${PATH}
 
-
 source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-
-
-# google-cloud-sdk
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
 
 # git-completion
 source /usr/local/etc/bash_completion.d/git-completion.bash
