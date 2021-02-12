@@ -68,6 +68,11 @@ alias dirs="dirs -v"
 which direnv > /dev/null 2>&1 && eval "$(direnv hook bash)"
 
 
+## git completion
+__hotoku_source_if_exists /usr/local/etc/bash_completion.d/git-completion.bash
+__hotoku_source_if_exists /usr/local/etc/bash_completion.d/git-prompt.sh
+
+
 # ps1
 if declare -F __git_ps1 > /dev/null; then
     export PS1='\[\e[0;32m\]\W\[\e[00m\]\[\e[0;33m\]$(__git_ps1 "[%s]")\[\e[00m\] \$ '
@@ -97,6 +102,5 @@ fi
 [[ -d ~/.rbenv  ]] && \
     export PATH=${HOME}/.rbenv/bin:${PATH} && \
     eval "$(rbenv init -)"
-
 
 unset -f __hotoku_source_if_exists
