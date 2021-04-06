@@ -8,3 +8,6 @@ eval "$(pyenv init -)"
 
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 eval "$(rbenv init -)"
+eval 'eval "$(pyenv virtualenv-init -)"'
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
