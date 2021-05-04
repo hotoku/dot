@@ -37,3 +37,7 @@ source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 source ~/projects/dot/fzf-extras/fzf-extras.sh
+
+# attta
+export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
+export JDSC_USER_ID=yasunori.horikoshi@jdsc.ai
