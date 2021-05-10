@@ -11,3 +11,6 @@ eval "$(rbenv init -)"
 eval 'eval "$(pyenv virtualenv-init -)"'
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+export JDSC_USER_ID=yasunori.horikoshi@jdsc.ai
+export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
