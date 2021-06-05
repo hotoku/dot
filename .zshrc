@@ -101,4 +101,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
+path=(
+    $HOME/bin
+    /opt/homebrew/bin
+    $path
+)
+
