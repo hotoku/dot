@@ -132,4 +132,10 @@ path=(
     $path
 )
 
+
+
 export EDITOR=emacsclient
+
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
