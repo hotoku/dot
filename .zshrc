@@ -101,9 +101,17 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
+
 path=(
     $HOME/bin
     /opt/homebrew/bin
     $path
 )
 
+# pyenv
+# export PYENV_ROOT="$HOME/.pyenv"
+# path=(
+#     $PYENV_ROOT/bin
+#     $path
+# )
+# eval "$(pyenv init -)"
