@@ -8,20 +8,22 @@ co = checkout
 br = branch
 
 [user]
-name = Yasunori Horikoshi
-email = hotoku@users.noreply.github.com
+	name = Yasunori Horikoshi
+	email = yasunori.horikoshi@jdsc.ai
 [http]
 sslVerify = false
 [core]
-excludesfile = /Users/hotoku/.gitignore_global
+	excludesfile = /Users/hotoku/.gitignore_global
 [difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [mergetool "sourcetree"]
-cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [pull]
 rebase = false
 
 [init]
 defaultBranch = main
+[commit]
+	template = /Users/hotoku/.stCommitMsg
