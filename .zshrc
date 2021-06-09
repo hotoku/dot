@@ -126,16 +126,20 @@ eval "$(pyenv init -)"
 
 ## ---- my own personal setting ----
 
+# path
 path=(
     $HOME/bin
     /opt/homebrew/bin
     $path
 )
 
-
-
+# editor
 export EDITOR=emacsclient
 
-
-
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# direnv
+export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
+eval "$(direnv hook zsh)"
+
