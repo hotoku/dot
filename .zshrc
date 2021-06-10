@@ -130,6 +130,7 @@ eval "$(pyenv init -)"
 path=(
     $HOME/bin
     /opt/homebrew/bin
+    /usr/local/bin
     $path
 )
 
