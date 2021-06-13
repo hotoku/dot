@@ -144,3 +144,6 @@ export EDITOR=emacsclient
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
 eval "$(direnv hook zsh)"
 
+# gcloud
+. /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+. /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
