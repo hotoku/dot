@@ -9,7 +9,7 @@ br = branch
 
 [user]
 	name = Yasunori Horikoshi
-	email = yasunori.horikoshi@jdsc.ai
+	email = hotoku@users.noreply.github.com
 [http]
 sslVerify = false
 [core]
