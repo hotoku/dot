@@ -62,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -144,6 +144,7 @@ export EDITOR=emacsclient
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
 eval "$(direnv hook zsh)"
 
+
 # gcloud
 if [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]]; then
     . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
@@ -154,3 +155,9 @@ if [[ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/complet
     . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
     . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
+
+
+# history
+export HISTSIZE=50000
+export SAVEHIST=50001
+
