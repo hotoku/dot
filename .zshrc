@@ -142,6 +142,7 @@ export EDITOR=emacsclient
 
 # direnv
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
+export JDSC_GOOGLE_USER=yasunori.horikoshi@jdsc.ai
 eval "$(direnv hook zsh)"
 
 
