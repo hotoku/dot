@@ -162,3 +162,12 @@ fi
 export HISTSIZE=50000
 export SAVEHIST=50001
 
+
+# clangd for hotoku-macmini-2020.local
+path=(
+    $path
+    /opt/homebrew/opt/llvm/bin
+
+)
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
