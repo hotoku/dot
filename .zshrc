@@ -102,6 +102,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# path
+path=(
+    $HOME/bin
+    /opt/homebrew/bin
+    /usr/local/bin
+    $path
+)
+
 ## ---- pyenv: The following code are printed by `pyenv init` ----
 
 # (The below instructions are intended for common
@@ -125,14 +133,6 @@ eval "$(pyenv init -)"
 # for changes to profile files to take effect.
 
 ## ---- my own personal setting ----
-
-# path
-path=(
-    $HOME/bin
-    /opt/homebrew/bin
-    /usr/local/bin
-    $path
-)
 
 # editor
 export EDITOR=emacsclient
