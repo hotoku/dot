@@ -214,3 +214,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # anyenv
 eval "$(anyenv init -)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
