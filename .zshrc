@@ -223,5 +223,5 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
 # docker
-# cf: https://kurochan-note.hatenablog.jp/entry/2022/01/06/095606
-export DOCKER_HOST='tcp://127.0.0.1:2375'
+# cf: https://zenn.dev/takasp/articles/3cf03da87d894e
+export DOCKER_HOST=unix:///Users/hotoku/docker.sock
