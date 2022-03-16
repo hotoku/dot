@@ -220,10 +220,3 @@ fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-
-# docker
-# cf: https://kurochan-note.hatenablog.jp/entry/2022/01/06/095606
-if [[ "$(hostname)" = "hotoku-macbookair-2019" ]]; then
-    export DOCKER_HOST='tcp://127.0.0.1:2375'
-fi
