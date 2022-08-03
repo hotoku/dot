@@ -201,6 +201,14 @@ export HISTSIZE=50000
 export SAVEHIST=50001
 
 
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+
 # clangd for hotoku-macmini-2020.local
 path=(
     $path
