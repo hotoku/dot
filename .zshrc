@@ -233,8 +233,15 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # aws_completion
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+
+
 if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
     complete -C '/opt/homebrew/bin/aws_completer' aws
 elif [[ -f '/usr/local/bin/aws_completer' ]]; then
     complete -C '/usr/local/bin/aws_completer' aws
 fi
+
+
+# aws profile
+alias saws="aws --profile=sciseed"
+alias haws="aws --profile=hotoku"
