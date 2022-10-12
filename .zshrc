@@ -213,8 +213,6 @@ setopt HIST_SAVE_NO_DUPS
 path=(
     $path
     /opt/homebrew/opt/llvm/bin
-
-
 )
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
