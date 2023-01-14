@@ -183,9 +183,10 @@ eval "$(direnv hook zsh)"
 
 
 # gcloud
-if [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]]; then
-    . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+GCLOUD_SDK_DIR=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+if [[ -f "${GCLOUD_SDK_DIR}"/completion.zsh.inc ]]; then
+    . ${GCLOUD_SDK_DIR}/completion.zsh.inc
+    . ${GCLOUD_SDK_DIR}/path.zsh.inc
 fi
 
 
@@ -213,8 +214,9 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 
-if [[ -f '/usr/local/bin/aws_completer' ]]; then
-    complete -C '/usr/local/bin/aws_completer' aws
+AWSCOMP_BIN=/opt/homebrew/bin/aws_completer
+if [[ -f "${AWSCOMP_BIN}" ]]; then
+    complete -C "${AWSCOMP_BIN}" aws
 fi
 
 
