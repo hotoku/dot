@@ -131,6 +131,7 @@ source $ZSH/oh-my-zsh.sh
 # path
 path=(
     $HOME/bin
+    /opt/homebrew/bin
     /usr/local/bin
     $path
 )
@@ -182,14 +183,6 @@ export JDSC_GOOGLE_USER=yasunori.horikoshi@jdsc.ai
 eval "$(direnv hook zsh)"
 
 
-# gcloud
-GCLOUD_SDK_DIR=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
-if [[ -f "${GCLOUD_SDK_DIR}"/completion.zsh.inc ]]; then
-    . ${GCLOUD_SDK_DIR}/completion.zsh.inc
-    . ${GCLOUD_SDK_DIR}/path.zsh.inc
-fi
-
-
 # history
 export HISTSIZE=50000
 export SAVEHIST=50001
@@ -223,3 +216,9 @@ fi
 # aws profile
 alias saws="aws --profile=sciseed"
 alias haws="aws --profile=hotoku"
+
+
+# gcloud
+GCLOUD_SDK_DIR=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+source ${GCLOUD_SDK_DIR}/completion.zsh.inc
+source ${GCLOUD_SDK_DIR}/path.zsh.inc
