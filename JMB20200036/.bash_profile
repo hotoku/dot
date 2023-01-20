@@ -14,3 +14,5 @@ eval 'eval "$(pyenv virtualenv-init -)"'
 
 export JDSC_USER_ID=yasunori.horikoshi@jdsc.ai
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
+
+complete -C /usr/local/bin/terraform terraform
