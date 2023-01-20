@@ -131,7 +131,6 @@ source $ZSH/oh-my-zsh.sh
 # path
 path=(
     $HOME/bin
-    /opt/homebrew/bin
     /usr/local/bin
     $path
 )
@@ -190,12 +189,6 @@ if [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 fi
 
 
-if [[ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]]; then
-    . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-fi
-
-
 # history
 export HISTSIZE=50000
 export SAVEHIST=50001
@@ -209,23 +202,10 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 
-# clangd for hotoku-macmini-2020.local
-path=(
-    $path
-    /opt/homebrew/opt/llvm/bin
-)
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
-
 # anyenv
 if type anyenv > /dev/null 2>&1; then
     eval "$(anyenv init -)"
 fi
-
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
 # aws_completion
@@ -233,9 +213,7 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 
-if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
-    complete -C '/opt/homebrew/bin/aws_completer' aws
-elif [[ -f '/usr/local/bin/aws_completer' ]]; then
+if [[ -f '/usr/local/bin/aws_completer' ]]; then
     complete -C '/usr/local/bin/aws_completer' aws
 fi
 

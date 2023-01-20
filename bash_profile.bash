@@ -4,7 +4,6 @@ __hotoku_source_if_exists(){
 }
 
 
-
 # conda
 _conda(){
     local commands="activate
@@ -60,8 +59,6 @@ alias gst="git status"
 alias gc="git commit"
 alias tiga="tig --all"
 alias fin="find . -type d -name .git -prune -o -type f -print"
-alias cd=pushd
-alias dirs="dirs -v"
 
 
 # direnv
@@ -86,7 +83,6 @@ __hotoku_source_if_exists ~/.fzf.bash
 __hotoku_source_if_exists ~/projects/dot/fzf-extras/fzf-extras.sh
 
 
-
 # gcloud
 __hotoku_source_if_exists /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
 __hotoku_source_if_exists /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
@@ -102,5 +98,6 @@ fi
 [[ -d ~/.rbenv  ]] && \
     export PATH=${HOME}/.rbenv/bin:${PATH} && \
     eval "$(rbenv init -)"
+
 
 unset -f __hotoku_source_if_exists

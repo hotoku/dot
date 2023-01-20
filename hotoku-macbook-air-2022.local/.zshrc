@@ -183,19 +183,6 @@ export JDSC_GOOGLE_USER=yasunori.horikoshi@jdsc.ai
 eval "$(direnv hook zsh)"
 
 
-# gcloud
-if [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]]; then
-    . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-fi
-
-
-if [[ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]]; then
-    . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-    . /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-fi
-
-
 # history
 export HISTSIZE=50000
 export SAVEHIST=50001
@@ -209,23 +196,10 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 
-# clangd for hotoku-macmini-2020.local
-path=(
-    $path
-    /opt/homebrew/opt/llvm/bin
-)
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
-
 # anyenv
 if type anyenv > /dev/null 2>&1; then
     eval "$(anyenv init -)"
 fi
-
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
 # aws_completion
@@ -233,13 +207,18 @@ autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 
-if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
-    complete -C '/opt/homebrew/bin/aws_completer' aws
-elif [[ -f '/usr/local/bin/aws_completer' ]]; then
-    complete -C '/usr/local/bin/aws_completer' aws
+AWSCOMP_BIN=/opt/homebrew/bin/aws_completer
+if [[ -f "${AWSCOMP_BIN}" ]]; then
+    complete -C "${AWSCOMP_BIN}" aws
 fi
 
 
 # aws profile
 alias saws="aws --profile=sciseed"
 alias haws="aws --profile=hotoku"
+
+
+# gcloud
+GCLOUD_SDK_DIR=/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
+source ${GCLOUD_SDK_DIR}/completion.zsh.inc
+source ${GCLOUD_SDK_DIR}/path.zsh.inc
