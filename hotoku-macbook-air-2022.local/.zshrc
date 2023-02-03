@@ -33,7 +33,7 @@ source $ZSH/oh-my-zsh.sh
 
 ## my original settings
 export EDITOR=emacsclient
-eval "$(anyenv init)"
+eval "$(anyenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 
