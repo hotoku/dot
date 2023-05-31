@@ -93,7 +93,11 @@ HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 plugins=(git)
 
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
+    source $ZSH/oh-my-zsh.sh
+else
+    echo "install oh-my-zsh !"
+fi
 
 
 # User configuration
