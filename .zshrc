@@ -140,7 +140,7 @@ path=(
 ## ---- pyenv: The following code are printed by `pyenv init` ----
 
 
-if which pyenv; then
+if type pyenv >/dev/null 2>&1; then
 
 
     # (The below instructions are intended for common
@@ -186,7 +186,7 @@ export EDITOR=emacsclient
 # direnv
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
 export JDSC_GOOGLE_USER=yasunori.horikoshi@jdsc.ai
-if which direnv; then
+if type direnv > /dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
