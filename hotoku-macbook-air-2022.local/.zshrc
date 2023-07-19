@@ -1,5 +1,6 @@
 # path
 path=(
+    $HOME/.local/bin
     $HOME/bin
     /opt/homebrew/bin
     /usr/local/bin
