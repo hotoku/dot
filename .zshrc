@@ -6,7 +6,7 @@
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/hotoku/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -93,7 +93,11 @@ HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 plugins=(git)
 
 
-source $ZSH/oh-my-zsh.sh
+if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
+    source $ZSH/oh-my-zsh.sh
+else
+    echo "install oh-my-zsh !"
+fi
 
 
 # User configuration
@@ -140,30 +144,36 @@ path=(
 ## ---- pyenv: The following code are printed by `pyenv init` ----
 
 
-# (The below instructions are intended for common
-# shell setups. See the README for more guidance
-# if they don't apply and/or don't work for you.)
+if type pyenv >/dev/null 2>&1; then
 
 
-# Add pyenv executable to PATH and
-# enable shims by adding the following
-# to ~/.profile and ~/.zprofile:
+    # (The below instructions are intended for common
+    # shell setups. See the README for more guidance
+    # if they don't apply and/or don't work for you.)
 
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+    # Add pyenv executable to PATH and
+    # enable shims by adding the following
+    # to ~/.profile and ~/.zprofile:
 
 
-# Load pyenv into the shell by adding
-# the following to ~/.zshrc:
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
 
 
-eval "$(pyenv init -)"
+    # Load pyenv into the shell by adding
+    # the following to ~/.zshrc:
 
 
-# Make sure to restart your entire logon session
-# for changes to profile files to take effect.
+    eval "$(pyenv init -)"
+
+
+    # Make sure to restart your entire logon session
+    # for changes to profile files to take effect.
+
+
+fi
 
 
 ## ---- my own personal setting ----
@@ -180,7 +190,9 @@ export EDITOR=emacsclient
 # direnv
 export ATTTA_GOOGLE_USER=hotoku@attta.co.jp
 export JDSC_GOOGLE_USER=yasunori.horikoshi@jdsc.ai
-eval "$(direnv hook zsh)"
+if type direnv > /dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
 
 
 # gcloud
