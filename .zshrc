@@ -208,6 +208,12 @@ if [[ -f /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/complet
 fi
 
 
+if [[ -f '/Users/hotoku/google-cloud-sdk/path.zsh.inc' ]]; then
+    . '/Users/hotoku/google-cloud-sdk/path.zsh.inc'
+    . '/Users/hotoku/google-cloud-sdk/completion.zsh.inc'
+fi
+
+
 # history
 export HISTSIZE=50000
 export SAVEHIST=50001
