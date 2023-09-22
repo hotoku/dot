@@ -58,9 +58,10 @@ if type direnv > /dev/null 2>&1; then
 fi
 
 
-# gcloud
+# gcloud todo: カスタマイズ対象
 GCLOUD_HOME=/Users/hotoku/google-cloud-sdk
 if [[  -d ${GCLOUD_HOME} ]]; then
+    echo reading gcloud
     . ${GCLOUD_HOME}/completion.zsh.inc
     . ${GCLOUD_HOME}/path.zsh.inc
 fi
