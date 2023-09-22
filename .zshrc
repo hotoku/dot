@@ -15,11 +15,19 @@ fi
 # path todo: カスタマイズ対象
 path=(
     $HOME/bin
-    /opt/homebrew/bin
-    /usr/local/bin
-    /opt/homebrew/opt/llvm/bin
     $path
 )
+
+
+# homebrew
+if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
+    path=(
+        /opt/homebrew/bin
+        /opt/homebrew/opt/llvm/bin
+        /usr/local/bin
+        $path
+    )
+fi
 
 
 # pyenv
@@ -86,9 +94,9 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
 # aws_completion
+# [2023-09-22] 最近はawsコマンドを使ってないので、ちゃんと動くのか分からない
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-#
 if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
     complete -C '/opt/homebrew/bin/aws_completer' aws
 elif [[ -f '/usr/local/bin/aws_completer' ]]; then
