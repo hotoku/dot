@@ -62,8 +62,10 @@ fi
 GCLOUD_HOME=/Users/hotoku/google-cloud-sdk
 if [[  -d ${GCLOUD_HOME} ]]; then
     echo reading gcloud
-    . ${GCLOUD_HOME}/completion.zsh.inc
-    . ${GCLOUD_HOME}/path.zsh.inc
+    echo source ${GCLOUD_HOME}/completion.zsh.inc
+    echo source ${GCLOUD_HOME}/path.zsh.inc
+    source ${GCLOUD_HOME}/completion.zsh.inc
+    source ${GCLOUD_HOME}/path.zsh.inc
 fi
 
 
