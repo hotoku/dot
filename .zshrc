@@ -58,17 +58,6 @@ if type direnv > /dev/null 2>&1; then
 fi
 
 
-# gcloud todo: カスタマイズ対象
-GCLOUD_HOME=/Users/hotoku/google-cloud-sdk
-if [[  -d ${GCLOUD_HOME} ]]; then
-    echo reading gcloud
-    echo source ${GCLOUD_HOME}/completion.zsh.inc
-    echo source ${GCLOUD_HOME}/path.zsh.inc
-    source ${GCLOUD_HOME}/completion.zsh.inc
-    source ${GCLOUD_HOME}/path.zsh.inc
-fi
-
-
 # history
 export HISTSIZE=50000
 export SAVEHIST=50001
@@ -104,4 +93,12 @@ if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
     complete -C '/opt/homebrew/bin/aws_completer' aws
 elif [[ -f '/usr/local/bin/aws_completer' ]]; then
     complete -C '/usr/local/bin/aws_completer' aws
+fi
+
+
+# gcloud todo: カスタマイズ対象
+GCLOUD_HOME="${HOME}"/google-cloud-sdk
+if [[  -d ${GCLOUD_HOME} ]]; then
+    . ${GCLOUD_HOME}/path.zsh.inc
+    . ${GCLOUD_HOME}/completion.zsh.inc
 fi
