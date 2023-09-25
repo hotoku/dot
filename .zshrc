@@ -15,6 +15,7 @@ fi
 # path todo: カスタマイズ対象
 path=(
     $HOME/bin
+    $HOME/.local/bin # poetry
     $path
 )
 
