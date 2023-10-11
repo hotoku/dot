@@ -25,6 +25,7 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
     path=(
         /opt/homebrew/bin
         /opt/homebrew/opt/llvm/bin
+        /opt/homebrew/opt/curl/bin
         /usr/local/bin
         $path
     )
