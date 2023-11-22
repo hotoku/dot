@@ -31,6 +31,12 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
 fi
 
 
+# anyenv
+if type anyenv > /dev/null 2>&1; then
+    eval "$(anyenv init -)"
+fi
+
+
 # pyenv
 if type pyenv >/dev/null 2>&1; then
     # Add pyenv executable to PATH and
@@ -75,12 +81,6 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 
-# anyenv
-if type anyenv > /dev/null 2>&1; then
-    eval "$(anyenv init -)"
-fi
-
-
 # terraform completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -103,3 +103,4 @@ if [[  -d ${GCLOUD_HOME} ]]; then
     . ${GCLOUD_HOME}/path.zsh.inc
     . ${GCLOUD_HOME}/completion.zsh.inc
 fi
+eval "$(pyenv virtualenv-init -)"
