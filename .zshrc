@@ -104,4 +104,3 @@ if [[  -d ${GCLOUD_HOME} ]]; then
     . ${GCLOUD_HOME}/path.zsh.inc
     . ${GCLOUD_HOME}/completion.zsh.inc
 fi
-eval "$(pyenv virtualenv-init -)"
