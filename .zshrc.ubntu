@@ -8,13 +8,14 @@ plugins=(git)
 if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
     source $ZSH/oh-my-zsh.sh
 else
-    echo "install oh-my-zsh !"
+    echo -e "\[033[31minstall oh-my-zsh !\033[0m"
 fi
 
 
 # path todo: カスタマイズ対象
 path=(
     $HOME/bin
+    $HOME/.anyenv/bin
     $HOME/.local/bin # poetry
     $path
 )
@@ -104,3 +105,7 @@ if [[  -d ${GCLOUD_HOME} ]]; then
     . ${GCLOUD_HOME}/path.zsh.inc
     . ${GCLOUD_HOME}/completion.zsh.inc
 fi
+
+# fzf
+source /usr/share/doc/fzf/examples/completion.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
