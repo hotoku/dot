@@ -17,6 +17,7 @@ path=(
     $HOME/bin
     $HOME/.anyenv/bin
     $HOME/.local/bin # poetry
+    /snap/bin
     $path
 )
 
