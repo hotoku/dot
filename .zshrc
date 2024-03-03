@@ -2,7 +2,10 @@
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
-plugins=(git)
+plugins=(
+    git
+    zsh-autosuggestions
+)
 
 
 if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
@@ -103,4 +106,10 @@ GCLOUD_HOME="${HOME}"/google-cloud-sdk
 if [[  -d ${GCLOUD_HOME} ]]; then
     . ${GCLOUD_HOME}/path.zsh.inc
     . ${GCLOUD_HOME}/completion.zsh.inc
+fi
+
+
+# zoxide
+if type zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
 fi
