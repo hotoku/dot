@@ -2,23 +2,22 @@
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
-plugins=(
-    git
-    zsh-autosuggestions
-)
+plugins=(git)
 
 
 if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
     source $ZSH/oh-my-zsh.sh
 else
-    echo "install oh-my-zsh !"
+    echo -e "\[033[31minstall oh-my-zsh !\033[0m"
 fi
 
 
 # path todo: カスタマイズ対象
 path=(
     $HOME/bin
+    $HOME/.anyenv/bin
     $HOME/.local/bin # poetry
+    /snap/bin
     $path
 )
 
@@ -32,6 +31,12 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
         /usr/local/bin
         $path
     )
+fi
+
+
+# anyenv
+if type anyenv > /dev/null 2>&1; then
+    eval "$(anyenv init -)"
 fi
 
 
@@ -79,12 +84,6 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 
-# anyenv
-if type anyenv > /dev/null 2>&1; then
-    eval "$(anyenv init -)"
-fi
-
-
 # terraform completion
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
@@ -108,8 +107,12 @@ if [[  -d ${GCLOUD_HOME} ]]; then
     . ${GCLOUD_HOME}/completion.zsh.inc
 fi
 
+# fzf
+source /usr/share/doc/fzf/examples/completion.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 
-# zoxide
-if type zoxide > /dev/null 2>&1; then
-    eval "$(zoxide init zsh)"
+# ssh-agent
+if [[ -z "${SSH_AUTH_SOCK}" ]]; then
+    eval $(ssh-agent)
+    ssh-add ~/.ssh/id_ed25519
 fi
