@@ -116,3 +116,8 @@ if [[ -z "${SSH_AUTH_SOCK}" ]]; then
     eval $(ssh-agent)
     ssh-add ~/.ssh/id_ed25519
 fi
+
+# zoxide
+if type zoxide > /dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
