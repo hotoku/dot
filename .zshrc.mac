@@ -29,6 +29,7 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
         /opt/homebrew/bin
         /opt/homebrew/opt/llvm/bin
         /opt/homebrew/opt/curl/bin
+        /opt/homebrew/opt/openjdk@11/bin
         /usr/local/bin
         $path
     )
