@@ -1,3 +1,6 @@
+# -*- mode: shell-script -*-
+
+
 # oh-my-zsh
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
@@ -29,6 +32,7 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
         /opt/homebrew/bin
         /opt/homebrew/opt/llvm/bin
         /opt/homebrew/opt/curl/bin
+        /opt/homebrew/opt/openjdk@11/bin
         /usr/local/bin
         $path
     )
@@ -50,6 +54,12 @@ if type pyenv >/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     # Load pyenv into the shell by adding
     eval "$(pyenv init -)"
+fi
+
+
+# pyenv virtual env
+if pyenv --help | grep virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 
@@ -113,3 +123,7 @@ fi
 if type zoxide > /dev/null 2>&1; then
     eval "$(zoxide init zsh)"
 fi
+
+
+# rbenv
+eval "$(rbenv init -)"
