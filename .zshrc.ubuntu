@@ -5,7 +5,10 @@
 export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
-plugins=(git)
+plugins=(
+    git
+    zsh-autosuggestions
+)
 
 
 if [[ -f ${ZSH}/oh-my-zsh.sh ]]; then
@@ -127,3 +130,11 @@ fi
 if type zoxide > /dev/null 2>&1; then
     eval "$(zoxide init zsh)"
 fi
+
+
+# ruby
+export GEM_HOME=${HOME}/gems
+path=(
+    ${GEM_HOME}/bin
+    $path
+)
