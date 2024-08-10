@@ -95,19 +95,18 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 
+# bashcompinit, compinit
+autoload -Uz bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+
 # terraform completion
-autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 
 # aws_completion
-# [2023-09-22] 最近はawsコマンドを使ってないので、ちゃんと動くのか分からない
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-if [[ -f '/opt/homebrew/bin/aws_completer' ]]; then
-    complete -C '/opt/homebrew/bin/aws_completer' aws
-elif [[ -f '/usr/local/bin/aws_completer' ]]; then
-    complete -C '/usr/local/bin/aws_completer' aws
+if which aws_completer > /dev/null 2>&1; then
+    complete -C "$(which aws_completer)" aws
 fi
 
 
