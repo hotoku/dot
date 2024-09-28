@@ -46,16 +46,22 @@ if type anyenv > /dev/null 2>&1; then
 fi
 
 
-# # pyenv
-# if type pyenv >/dev/null 2>&1; then
-#     # Add pyenv executable to PATH and
-#     # enable shims by adding the following
-#     export PYENV_ROOT="$HOME/.pyenv"
-#     export PATH="$PYENV_ROOT/bin:$PATH"
-#     eval "$(pyenv init --path)"
-#     # Load pyenv into the shell by adding
-#     eval "$(pyenv init -)"
-# fi
+# pyenv
+if type pyenv >/dev/null 2>&1; then
+    # Add pyenv executable to PATH and
+    # enable shims by adding the following
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    # Load pyenv into the shell by adding
+    eval "$(pyenv init -)"
+fi
+
+
+# pyenv virtual env
+if pyenv --help | grep virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)"
+fi
 
 
 # editor
