@@ -55,12 +55,12 @@ if type pyenv >/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     # Load pyenv into the shell by adding
     eval "$(pyenv init -)"
-fi
 
 
-# pyenv virtual env
-if pyenv --help | grep virtualenv-init > /dev/null; then
-    eval "$(pyenv virtualenv-init -)"
+    # virtual env
+    if pyenv --help | grep virtualenv-init > /dev/null; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
 fi
 
 
