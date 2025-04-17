@@ -18,7 +18,7 @@ export ZSH="/Users/hotoku/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 HIST_STAMPS="%Y-%m-%d %H:%M:%S"
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 
 # Uncomment the following line to automatically update without prompting.
@@ -26,7 +26,7 @@ DISABLE_UPDATE_PROMPT="true"
 
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 
 source $ZSH/oh-my-zsh.sh
