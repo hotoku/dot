@@ -8,6 +8,8 @@ HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
+    gcloud
 )
 
 
@@ -63,6 +65,13 @@ if type pyenv >/dev/null 2>&1; then
     fi
 fi
 
+# poetry
+if type poetry > /dev/null 2>&1; then
+   plugins=(
+       poetry
+       $plugins
+   )
+fi   
 
 # editor
 export EDITOR=emacsclient
