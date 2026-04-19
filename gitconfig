@@ -6,6 +6,7 @@ tr = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an: %ad)%Crese
 tra = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an: %ad)%Creset %Cred%d%Creset' --date=format:'%Y/%m/%d %H:%M:%S' --all
 co = checkout
 br = branch
+unstage = reset HEAD
 
 [user]
 	name = Yasunori Horikoshi

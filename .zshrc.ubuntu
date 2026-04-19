@@ -8,6 +8,8 @@ HIST_STAMPS="%Y-%m-%d %H:%M:%S"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-syntax-highlighting
+    gcloud
 )
 
 
@@ -46,17 +48,30 @@ if type anyenv > /dev/null 2>&1; then
 fi
 
 
-# # pyenv
-# if type pyenv >/dev/null 2>&1; then
-#     # Add pyenv executable to PATH and
-#     # enable shims by adding the following
-#     export PYENV_ROOT="$HOME/.pyenv"
-#     export PATH="$PYENV_ROOT/bin:$PATH"
-#     eval "$(pyenv init --path)"
-#     # Load pyenv into the shell by adding
-#     eval "$(pyenv init -)"
-# fi
+# pyenv
+if type pyenv >/dev/null 2>&1; then
+    # Add pyenv executable to PATH and
+    # enable shims by adding the following
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    # Load pyenv into the shell by adding
+    eval "$(pyenv init -)"
 
+
+    # virtual env
+    if pyenv --help | grep virtualenv-init > /dev/null; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
+fi
+
+# poetry
+if type poetry > /dev/null 2>&1; then
+   plugins=(
+       poetry
+       $plugins
+   )
+fi   
 
 # editor
 export EDITOR=emacsclient
@@ -115,8 +130,10 @@ fi
 
 
 # fzf
-source /usr/share/doc/fzf/examples/completion.zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+if [[ -f '/usr/share/doc/fzf/examples/completion.zsh' ]]; then
+    source /usr/share/doc/fzf/examples/completion.zsh
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
 
 
 # ssh-agent
