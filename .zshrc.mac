@@ -18,15 +18,6 @@ else
 fi
 
 
-# path todo: カスタマイズ対象
-path=(
-    $HOME/bin
-    $HOME/.local/bin # poetry
-    $HOME/go/bin
-    $path
-)
-
-
 # homebrew
 if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
     path=(
@@ -34,10 +25,18 @@ if ! [[ -z "${HOMEBREW_PREFIX}" ]]; then
         /opt/homebrew/opt/llvm/bin
         /opt/homebrew/opt/curl/bin
         /opt/homebrew/opt/openjdk@11/bin
-        /usr/local/bin
+        /opt/homebrew/opt/mysql@8.4/bin
         $path
     )
 fi
+
+
+path=(
+    $HOME/bin
+    $HOME/.local/bin # poetry
+    $HOME/go/bin
+    $path
+)
 
 
 # anyenv
