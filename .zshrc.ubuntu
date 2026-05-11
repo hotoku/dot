@@ -155,3 +155,6 @@ path=(
     ${GEM_HOME}/bin
     $path
 )
+
+# lsの表示をWSL用に調整。other writableのフォルダで強調表示しない。
+export LS_COLORS=$LS_COLORS:'ow=01;34'
