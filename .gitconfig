@@ -15,6 +15,7 @@ unstage = reset HEAD
 sslVerify = false
 [core]
 	excludesfile = /Users/hotoku/.gitignore_global
+	autocrlf = input
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
